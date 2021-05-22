@@ -1,0 +1,5 @@
+avance 10
+lancer
+recule 10
+droite 100
+lancer
