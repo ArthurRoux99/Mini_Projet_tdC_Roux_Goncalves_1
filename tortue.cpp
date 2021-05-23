@@ -36,6 +36,7 @@ void tortue::render()
     bool test_rep=false;
     dessiner_toutes_les_lignes();
     sf::Font style;
+    // bordure et fon zone de textbox
     sf::RectangleShape rectangle;
     sf::RectangleShape rectangle1;
     sf::RectangleShape rectangle2;
