@@ -41,6 +41,7 @@ int main()
 			break;
 		default:
 			break;
+
 		}
 
 	} while (x!= 4);
