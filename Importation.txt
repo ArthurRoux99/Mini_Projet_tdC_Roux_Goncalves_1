@@ -1,3 +1,4 @@
 avance 100
 droite 100
 recule 100
+gauche 100
