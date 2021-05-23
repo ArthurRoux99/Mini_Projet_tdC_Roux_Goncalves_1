@@ -1,4 +1,2 @@
-repeter 10
-avance 10
-droite 10
-finrepeter
+avance 100
+droite 100

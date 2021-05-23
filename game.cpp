@@ -45,14 +45,6 @@ game::~game()
 void game::update()
 {	
 
-	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
-	{
-		est_select(true);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-	{
-		est_select(false);
-	}*/
 	while (window->pollEvent(ev))
 	{
 		//cout << "Mouse x: " << sf::Mouse::getPosition().x << ", y: " << sf::Mouse::getPosition().y << endl;
@@ -95,10 +87,6 @@ void game::update()
 		{
 				texte_bt_lance.setColor(sf::Color::Red);
 				Over_lancer = true;
-				/*if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				{
-					lance = true;
-				}*/
 		}
 			else {
 				Over_lancer = false;
@@ -131,23 +119,12 @@ void game::update()
 		}
 
 	}
-	//float x = sf::Mouse::getPosition(window()).x;
-	//float xMouse = sf::Mouse::getPosition();
-	//float yMouse = sf::Mouse::getPosition().y;
-	//float Btnxi = bouton_lance.getPosition().x;
-	//float Btnyi = bouton_lance.getPosition().y;
-	//float Btnxf = bouton_lance.getPosition().x + bouton_lance.getLocalBounds().width;
-	//float Btnyf = bouton_lance.getPosition().y + bouton_lance.getLocalBounds().height;
-
-	//if (xMouse<Btnxf && xMouse>Btnxi && yMouse < Btnyf && yMouse > Btnyi)
-	//{
-
-	//}
+	
 }
 
 void game::render()
 {
-	window->clear();
+	/*window->clear();
 	sf::Vertex line[] =
 	{
 		sf::Vertex(sf::Vector2f(10, 10)),
@@ -161,5 +138,72 @@ void game::render()
 
 	window->draw(line, 2, sf::Lines);
 	window->draw(line1, 2, sf::Lines);
-	window->display();
+	window->display();*/
+}
+
+void game::InputText(sf::Event input)
+{
+	if (Select_textbox)
+	{
+		int chartype = input.text.unicode;
+		if (chartype < 128)
+		{
+			inputChar(chartype);
+		}
+	}
+}
+
+void game::setFont(sf::Font& font)
+{
+	Textbox.setFont(font);
+}
+
+void game::setposition(sf::Vector2f pos)
+{
+	Textbox.setPosition(pos);
+}
+
+void game::est_select(bool sel)
+{
+	Select_textbox = sel;
+	if (!sel)
+	{
+		string t = text.str();
+		string newt = "";
+		for (int i = 0; i < t.length() - 1; i++)
+		{
+			newt += t[i];
+		}
+		text.str("");
+		text << newt;
+		Textbox.setString(newt);
+	}
+}
+
+void game::inputChar(int entree) {
+	if (entree != delete_key && entree != enter_key && entree != escape_key)
+	{
+		text << static_cast<char>(entree);
+	}
+	else if (entree == delete_key)
+	{
+		if (text.str().length() > 0)
+		{
+			deletelastchar();
+		}
+	}
+	Textbox.setString(text.str() + "_");
+}
+
+void game::deletelastchar()
+{
+	string t = text.str();
+	string newt = "";
+	for (int i = 0; i < t.length() - 1; i++)
+	{
+		newt += t[i];
+	}
+	text.str("");
+	text << newt;
+	Textbox.setString(text.str());
 }

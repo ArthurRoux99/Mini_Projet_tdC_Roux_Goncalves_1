@@ -12,10 +12,12 @@
 #include <iostream>
 using namespace std;
 
+// declaration code unicode correspondant aux touches delete, entree, echap
 #define delete_key 8
 #define enter_key 13
 #define escape_key 27
 
+//enum comportant toutes les intructions pouvant être entrée
 enum intruction
 {
 	avance,
@@ -34,70 +36,53 @@ enum intruction
 	rien,
 };
 
-
+// La classe game est la classe mère de tortue. elle gère tout ce qui est évenement sur la page, organisation de la fenêtre avec des bordure, mais aussi des élément comme une
+//textbox et des boutons
 class game
 {
 protected:
 	//Var
 	int nb;
-	sf::RenderWindow* window;
-	sf::VideoMode Vm;
-	sf::Event ev;
-	sf::Text Textbox;
-	sf::Font font;
+	sf::RenderWindow* window; //fenetre de jeu
+	sf::VideoMode Vm;//parametre video de la fenetre
+	sf::Event ev;// evenement lie a la page
+	//variable textbox
+	sf::Text Textbox;//textebox sur la page de jeu
+	sf::Font font;// permet de stocker une police de caractère
 	ostringstream text;
+	//vector pour le stockage d'information
 	vector<intruction> instructions;
 	vector<string> historique;
 	vector<string> file;
-	sf::Text histo;
+	sf::Text histo; // permet l'affichage de l'historique en direct
 	int nb_ins;
 	//Bouton lancer
 	sf::RectangleShape bouton_lance;
 	sf::Text texte_bt_lance;
+	bool lance;
+	bool Over_lancer;
 	//Bouton nettoyer
 	sf::RectangleShape bouton_nettoyer;
 	sf::Text texte_bt_nettoyer;
 	bool click_nettoyer;
-	bool Over_lancer;
 	bool Select_textbox;
-	bool lance;
-	void inputChar(int entree) {
-		if (entree != delete_key && entree != enter_key && entree != escape_key)
-		{
-			text << static_cast<char>(entree);
-		}
-		else if (entree == delete_key)
-		{
-			if (text.str().length() > 0)
-			{
-				deletelastchar();
-			}
-		}
-		Textbox.setString(text.str() + "_");
-	}
-	void deletelastchar()
-	{
-		string t = text.str();
-		string newt = "";
-		for ( int i = 0;  i < t.length()-1; i++)
-		{
-			newt += t[i];
-		}
-		text.str("");
-		text << newt;
-		Textbox.setString(text.str());
-	}
+	void inputChar(int entree);//fonction prive permettant d'utiliser les caractère transformer grâce au code unicode d'un caratère 
+	//et permet de l'afficher il permet aussi de gérer les actions lors de l'appui sur entrée
+	void deletelastchar();//permet de gérer le fait d'appuyer sur la touche supprimée 
 public: 
-	game(); //constructeur
+	game(); //constructeur avec initialisation des boutons
 	~game(); // destructeur
 	// fonction
-	const bool running()const {return window->isOpen();};
-	void afficher_fenetre() { window->setVisible(true ) ; };
-	void update();
-	virtual void render();
-	string getText() { return text.str(); };
-	float mousepos() {};
-	void creategame() { window->create(Vm, "Logo", sf::Style::Titlebar | sf::Style::Close); };
+	const bool running()const {return window->isOpen();};//renvoie vrai si la fenetre jeu est ouverte
+	void afficher_fenetre() { window->setVisible(true ) ; };//permet de paramétrer la fenetre comme visible
+	void update();// cette fonction gère tout ce qui est event sur la page clique, appuie sur une touche du clavier,etc et applique des fonctions selon l'évènement
+	virtual void render();//permet l'affichage d'objet entre display et clear ici déclarer en virtual pour les tests la fonction render est très important dans tortue
+	string getText() { return text.str(); };// récupère le texte de la textebox
+	void creategame() { window->create(Vm, "Logo", sf::Style::Titlebar | sf::Style::Close); };//crée la fenetre de jeu en fonction des paramètre
+	void InputText(sf::Event input);//transforme les caractère tapés grâce au code unicode
+	void setFont(sf::Font& font);//récupère la police de caractère
+	void setposition(sf::Vector2f pos);//positionne la textbox
+	void est_select(bool sel);//gère si la textbox est sélectionné
 	intruction AvoirIntruct(string input) {
 		if (input == "avance") return avance;
 		if (input == "recule") return recule;
@@ -115,40 +100,6 @@ public:
 		//...
 		else cout << "Ce n'est pas une intruction" << endl;
 	};
-	void InputText(sf::Event input)
-	{
-		if (Select_textbox)
-		{
-			int chartype = input.text.unicode;
-			if (chartype < 128)
-			{
-				inputChar(chartype);
-			}
-		}
-	}
-	void setFont(sf::Font& font)
-	{
-		Textbox.setFont(font);
-	}
-	void setposition(sf::Vector2f pos)
-	{
-		Textbox.setPosition(pos);
-	}
-	void est_select(bool sel)
-	{
-		Select_textbox = sel;
-		if (!sel)
-		{
-			string t = text.str();
-			string newt = "";
-			for (int i = 0; i < t.length() - 1; i++)
-			{
-				newt += t[i];
-			}
-			text.str("");
-			text << newt;
-			Textbox.setString(newt);
-		}
-	}
+	// fonction qui permet de récupérer une instruction en fonction d'un string en paramètre. cela permet d'effctuer un switch par la suite
 };
 

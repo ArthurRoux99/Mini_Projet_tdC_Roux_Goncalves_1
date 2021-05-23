@@ -26,7 +26,6 @@ int main()
 		{
 
 		case 1:
-			//game.afficher_fenetre();
 			game.creategame();
 			while (game.running())
 			{

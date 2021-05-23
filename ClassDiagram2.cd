@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bouton">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAACEAABAAABgAAIAQAAAAAEAAggAIAAAgCAAAAAA=</HashCode>
+      <FileName>bouton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="game">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgIAASAAAhAAQBKIgAACaAAAAAoAggAKDIAQIAEUAAI=</HashCode>
+      <FileName>game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ligne">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEwAAgAAAAAEAAAAAAAAwAAAAAAAAAAAIAAAwAAAAA=</HashCode>
+      <FileName>ligne.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tortue">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAMGoAACBAAoAQAABQBAgIAIABgBGBQAAE=</HashCode>
+      <FileName>tortue.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="intruction">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAIAAAIACAABACGAAAAIBAASAAEAAAAABAAAAA=</HashCode>
+      <FileName>game.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -13,6 +13,7 @@ tortue::tortue()
     pen_down = true;
     x = 900;
     y = 300;
+    sprite.setPosition(x, y);
     Textbox.setCharacterSize(30);
     Select_textbox = true;
     window->setVisible(false);
@@ -25,7 +26,6 @@ tortue::tortue()
     }
     lance = false;
     tortue_visible = true;
-    sprite.setPosition(x, y);
 }
 
 void tortue::render()
@@ -54,50 +54,6 @@ void tortue::render()
     rectangle2.setFillColor({128,128,128});
     rectangle2.setOutlineThickness(10);
     rectangle2.setOutlineColor(sf::Color::Black);
-   // string N1;
-   // //cout << "entrez valeur" << endl;
-   //// getline(cin, N1);
-   // istringstream is(N1); // Flux d'entrée associé à la chaîne
-   // string N2;
-   // float w;
-   // is >> N2 >> w; // Extraire un réel du flux
-   // //cout << "N2 : " << N2 << " , X= " << x << endl;
-   // switch (AvoirIntruct(N2))
-   // {
-   // case avance:
-   //     cout << "avance de " << w << endl;
-   //     Avance(w);
-   //     cout << "X :" << x << "Y :" << y << endl;
-   //     break;
-   // case recule:
-   //     cout << "recule de " << w << endl;
-   //     Recule(w);
-   //     cout << "X :" << x << "Y :" << y << endl;
-   //     break;
-   // case gauche:
-   //     cout << "Va a gauche de " << w << endl;
-   //     Gauche(w);
-   //     cout << "X :" << x << "Y :" << y << endl;
-   //     break;
-   // case droite:
-   //     cout << "Va a droite de " << w << endl;
-   //     Droite(w);
-   //     cout << "X :" << x << "Y :" << y << endl;
-   //     break;
-   // case rien:
-   //     cout << "Instruction n'existe pas" << endl;
-   //     break;
-   // default:
-   //     break;
-   // }
-    //Avance(150);
-    //Gauche(200);
-    //Recule(200);
-    //sf::FileStream stream;
-    //stream.open("image.png");
-
-    //sf::Texture texture;
-    //texture.loadFromStream(stream);
     if (click_nettoyer == true)
     {
         Nettoyer();
@@ -161,7 +117,6 @@ void tortue::render()
                      Nettoyer();
                      break;
                  case repeter:
-                     cout << "repeter" << endl;
                      for (auto rep:file)
                      {
                          istringstream is(rep); // Flux d'entrée associé à la chaîne
@@ -186,7 +141,6 @@ void tortue::render()
                      {
                          for (auto repetition : act_repeter)
                          {
-                            //cout << repetition << endl;
                              istringstream is(repetition); // Flux d'entrée associé à la chaîne
                              string action_repeter;
                              float valeur;
@@ -267,7 +221,6 @@ void tortue::render()
         j+=2;
 
     }
-    //sprite.setPosition(x, y);
     window->draw(bouton_lance);
     window->draw(texte_bt_lance);
     window->draw(bouton_nettoyer);

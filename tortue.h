@@ -21,37 +21,40 @@
 using namespace std;
 
 
-
+// la classe tortue permet d'effectuer toutes les actions de type dessin de ligne. Elle gère l'affichage de la tortue ces coordonnees le stylo etc
 class tortue :public game
 {
+    //position de la tortue
     float x;
     float y;
     float angle;
+    //tortue
     sf::Texture    texture;
     sf::Sprite     sprite;
+    //stockage
     vector<class ligne> lignes;
     vector<string> act_repeter;
+    //booleen pour savoir si la tortue est visible et si le stylo est en haut ou en bas
     bool pen_down;
     bool tortue_visible;
 public: 
-    tortue();
-    void render();
-    void Avance(float i);
-    void Recule(float i);
-    void Gauche(float i);
-    void Droite(float i);
-    void poser_crayon();
-    void lever_crayon();
-    void Nettoyer();
-    float getX() {return x;};
-    float getY() { return y; };
-    sf::Texture getTexture() {return texture;};
-    sf::Sprite getSprite() { return sprite; };
-    void dessiner_ligne(ligne l);
-    void dessiner_toutes_les_lignes();
-    void Exporte_Historique();
-    void Importe_Historique();
-    //void ajouterInstruct(intruction inst) { instructions.push_back(inst);};
+    tortue();// constructeur initialise les coordonnees de la tortue, son apparence,et certain autres elements
+    void render();// cette fonction est la plus important, elle gère tout ce qui est dessin affichage sur la page . les actions a realiser en fonction des instructions
+    void Avance(float i);// cette fonction gère le deplacement vers le haut
+    void Recule(float i);// cette fonction gère le deplacement vers le bas
+    void Gauche(float i);// cette fonction gère le deplacement vers la gauche
+    void Droite(float i);// cette fonction gère le deplacement vers la droite
+    void poser_crayon();// cette fonction pose le crayon
+    void lever_crayon();//cette fonction lève le crayon
+    void Nettoyer();//effectue les actions lié a l'instuction nettoyer ou au bouton
+    float getX() {return x;};//retourne la coordonnee x de la tortue
+    float getY() { return y; };//retourne la coordonnee y de la tortue
+    sf::Texture getTexture() {return texture;};//retourne la texture de la tortue
+    sf::Sprite getSprite() { return sprite; };//retourne le sprite y de la tortue
+    void dessiner_ligne(ligne l);//dessine une seule ligne et l'ajoute au stockage
+    void dessiner_toutes_les_lignes();//dessine toutes les lignes du stockage
+    void Exporte_Historique();// gère l'exportation de l'historique vers un fichier txt
+    void Importe_Historique();// gère l'importation d'un fichier txt 
 };
 
 
