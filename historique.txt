@@ -1,5 +1,4 @@
+repeter 10
 avance 10
-lancer
-recule 10
-droite 100
-lancer
+droite 10
+finrepeter

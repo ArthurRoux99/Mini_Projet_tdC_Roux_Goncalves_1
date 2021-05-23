@@ -35,9 +35,10 @@ int main()
 			}
 			break;
 		case 2:
-			game.Exporte_Historique();
+			game.Importe_Historique();
 			break;
 		case 3:
+			game.Exporte_Historique();
 			break;
 		default:
 			break;

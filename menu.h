@@ -63,10 +63,12 @@ int menu()
         if(x==2 && (Keyboard::isKeyPressed(Keyboard::Enter) || Mouse::isButtonPressed(Mouse::Left)) && (i<2))
         {
             i=2;
+            return 2;
         }
         if(x==3 && (Keyboard::isKeyPressed(Keyboard::Enter) || Mouse::isButtonPressed(Mouse::Left)) && (i<2))
         {
             i=3;
+            return 3;
         }
         if(x==4 && (Keyboard::isKeyPressed(Keyboard::Enter) || Mouse::isButtonPressed(Mouse::Left)) && (i<2))
         {
@@ -90,7 +92,7 @@ int menu()
         if(x==2 && i==2) return 2;
         if(Keyboard::isKeyPressed(Keyboard::Escape)) i=0;
         if(x==3 && i==3) return 3;
-        if(x==4 && i==4) return x;
+        if(x==4 && i==4) return 4;
        }
         window.display();
     }

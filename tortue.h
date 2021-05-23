@@ -30,8 +30,9 @@ class tortue :public game
     sf::Texture    texture;
     sf::Sprite     sprite;
     vector<class ligne> lignes;
-    //("Lancer", ( 80,30 ), 40, ( 128,128,128 ), sf::Color::Black);
+    vector<string> act_repeter;
     bool pen_down;
+    bool tortue_visible;
 public: 
     tortue();
     void render();
