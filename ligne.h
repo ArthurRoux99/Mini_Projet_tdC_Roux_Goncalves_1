@@ -2,6 +2,7 @@
 #include "game.h"
 
 //cette fonction permet de créer des éléments lignes en partant de deux points nécessaires
+//Auteur Arthur ROUX
 class ligne
 {
     float Xi;

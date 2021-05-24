@@ -6,6 +6,7 @@ using namespace sf;
 
 //fonction de menu affichant une image en fonction de la position de la souris
 //retourne 1,2,3,4 correspondant à un élément du menu
+//Auteurs: Mathilde Gonçalvès de Carvalho
 int menu()
 {
     RenderWindow window(VideoMode(800,800),"Interpreteur Logo!" , Style::Titlebar | Style::Close);

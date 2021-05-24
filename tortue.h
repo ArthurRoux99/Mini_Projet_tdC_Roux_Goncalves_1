@@ -22,6 +22,7 @@ using namespace std;
 
 
 // la classe tortue permet d'effectuer toutes les actions de type dessin de ligne. Elle gère l'affichage de la tortue ces coordonnees le stylo etc
+//Auteur: Arthur ROUX
 class tortue :public game
 {
     //position de la tortue

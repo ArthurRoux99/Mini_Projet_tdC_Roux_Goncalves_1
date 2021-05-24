@@ -6,6 +6,7 @@
 //Cette classe n'a pas été utilisé dû à l'impossibilité d'utilisé sf::mouse::getposition(window) car chez nous window est renderwindow*
 //néanmoins la déclaration de nos boutons a été faites en utilisant ces méthodes
 //Classe gérant tous les éléments d'un bouton
+//Auteurs: Mathilde Gonçalvès de Carvalho
 class Bouton
 {
 	sf::RectangleShape bouton;

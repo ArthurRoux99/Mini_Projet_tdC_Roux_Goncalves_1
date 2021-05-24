@@ -18,6 +18,7 @@ using namespace std;
 #define escape_key 27
 
 //enum comportant toutes les intructions pouvant être entrée
+//auteur Arthur ROUX
 enum intruction
 {
 	avance,
@@ -38,6 +39,9 @@ enum intruction
 
 // La classe game est la classe mère de tortue. elle gère tout ce qui est évenement sur la page, organisation de la fenêtre avec des bordure, mais aussi des élément comme une
 //textbox et des boutons
+//Auteurs: Mathilde Gonçalvès de Carvalho /Arthur Roux
+
+
 class game
 {
 protected:
